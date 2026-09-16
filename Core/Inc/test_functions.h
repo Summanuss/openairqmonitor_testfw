@@ -12,5 +12,6 @@ void TestUart1();
 void TestI2C();
 void TestSGP40();
 void TestSHT40_AD1B();
+void TestButton();
 
 #endif /* INC_TEST_FUNCTIONS_H_ */

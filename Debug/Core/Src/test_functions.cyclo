@@ -1,5 +1,0 @@
-../Core/Src/test_functions.c:16:6:TestUart1	1
-../Core/Src/test_functions.c:26:6:TestI2C	1
-../Core/Src/test_functions.c:35:6:TestSGP40	1
-../Core/Src/test_functions.c:54:6:TestSHT40_AD1B	1
-../Core/Src/test_functions.c:72:16:CalcCrcSGP40	4

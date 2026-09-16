@@ -59,6 +59,7 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define BUTTON_Pin GPIO_PIN_3
 #define BUTTON_GPIO_Port GPIOA
+#define BUTTON_EXTI_IRQn EXTI3_IRQn
 #define DC_AO_Pin GPIO_PIN_4
 #define DC_AO_GPIO_Port GPIOA
 #define RST_Pin GPIO_PIN_5
@@ -69,6 +70,8 @@ void Error_Handler(void);
 #define BCK_LIGHT_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
+
+extern uint8_t button_cnt;
 
 /* USER CODE END Private defines */
 

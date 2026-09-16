@@ -46,13 +46,13 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t button_cnt = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+int __io_putchar(int ch);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -109,8 +109,9 @@ int main(void)
 	  TestI2C();
 	  TestSGP40();
 	  TestSHT40_AD1B();
+	  TestButton();
 
-	  HAL_Delay(100);
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
@@ -165,6 +166,17 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+// Custom redefinition
+int __io_putchar(int ch)
+{
+	HAL_UART_Transmit(&huart1, (uint8_t*)&ch, 1, HAL_MAX_DELAY);
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	button_cnt = (button_cnt % 10) + 1;
+}
 
 /* USER CODE END 4 */
 
