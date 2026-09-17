@@ -26,6 +26,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "test_functions.h"
+#include "st7735.h"
+#include "GFX_FUNCTIONS.h"
+#include "version.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,6 +98,11 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  printf("Test Firmware Version: %d.%d.%d\n", MAJOR, MINOR, BUILD);
+
+  ST7735_Init(0);
+  fillScreen(BLACK);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -110,6 +119,7 @@ int main(void)
 	  TestSGP40();
 	  TestSHT40_AD1B();
 	  TestButton();
+	  TestDisplay();
 
 	  HAL_Delay(1000);
   }
@@ -171,6 +181,7 @@ void SystemClock_Config(void)
 int __io_putchar(int ch)
 {
 	HAL_UART_Transmit(&huart1, (uint8_t*)&ch, 1, HAL_MAX_DELAY);
+	return 0;
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)

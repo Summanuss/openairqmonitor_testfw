@@ -8,6 +8,7 @@
 #include "usart.h"
 #include "i2c.h"
 #include "main.h"
+#include "GFX_FUNCTIONS.h"
 #include <stdio.h>
 
 
@@ -83,6 +84,18 @@ void TestButton()
 	uint8_t local_cnt = button_cnt;
 	printf("%s: button_cnt : %d\n", TAG, local_cnt);
 }
+
+
+
+
+void TestDisplay()
+{
+	// BackLight ON
+	HAL_GPIO_WritePin(GPIOA, BCK_LIGHT_Pin, GPIO_PIN_SET);
+
+	testAll();
+}
+
 
 static uint8_t CalcCrcSGP40(uint8_t data[2])
 {

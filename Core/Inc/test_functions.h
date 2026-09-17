@@ -13,5 +13,6 @@ void TestI2C();
 void TestSGP40();
 void TestSHT40_AD1B();
 void TestButton();
+void TestDisplay();
 
 #endif /* INC_TEST_FUNCTIONS_H_ */
